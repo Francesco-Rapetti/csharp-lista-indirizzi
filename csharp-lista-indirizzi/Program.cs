@@ -12,7 +12,7 @@ namespace csharp_lista_indirizzi
     {
         static void Main(string[] args)
         {
-            var path = @"F:\source\csharp-lista-indirizzi\csharp-lista-indirizzi\addresses.csv";
+            var path = $"{Directory.GetCurrentDirectory().Substring(0, 56)}\\addresses.csv";
             using StreamReader stream = File.OpenText(path);
             List<Indirizzo> indirizzi = new List<Indirizzo>();
             foreach (var line in File.ReadLines(path).Skip(1))
@@ -63,8 +63,8 @@ namespace csharp_lista_indirizzi
                 }
 
             }
-            Console.Write("\n\n -");
-            Console.WriteLine(string.Join("\n -", indirizzi));
+            Console.Write("\n\n - ");
+            Console.WriteLine(string.Join("\n - ", indirizzi));
         }
 
         static bool IsFieldDigit(string name) => name.Any(c => char.IsDigit(c));
